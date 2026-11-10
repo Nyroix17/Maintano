@@ -1,0 +1,188 @@
+object FrameModule1: TFrameModule1
+  Left = 0
+  Height = 544
+  Top = 0
+  Width = 804
+  ClientHeight = 544
+  ClientWidth = 804
+  DesignTimePPI = 120
+  LCLVersion = '4.4.0.0'
+  ParentFont = False
+  TabOrder = 0
+  DesignLeft = 470
+  DesignTop = 32
+  object DBGrid1: TDBGrid
+    Left = 104
+    Height = 544
+    Top = 0
+    Width = 694
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    DefaultRowHeight = 85
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 0
+    OnDrawColumnCell = DBGrid1DrawColumnCell
+  end
+  object Splitter1: TSplitter
+    Left = 798
+    Height = 544
+    Top = 0
+    Width = 6
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object Image1: TImage
+    Left = 10
+    Height = 113
+    Top = 10
+    Width = 113
+    AutoSize = True
+    Center = True
+    Proportional = True
+    Stretch = True
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 544
+    Top = 0
+    Width = 104
+    Align = alLeft
+    ButtonHeight = 80
+    ButtonWidth = 100
+    Caption = 'ToolBar1'
+    Flat = False
+    Images = Form1.ImageList1
+    ShowCaptions = True
+    TabOrder = 2
+    object ToolButton2: TToolButton
+      Left = 1
+      Top = 2
+      Action = ActionInsererVoiture
+      AutoSize = True
+    end
+    object ToolButton3: TToolButton
+      Left = 1
+      Top = 82
+      Action = ActionModifierVehicule
+      AutoSize = True
+    end
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 162
+      Action = ActionSupprimeVehicule
+    end
+    object ToolButton4: TToolButton
+      Left = 1
+      Top = 242
+      Action = ActionRefreshVehicule
+    end
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = SQLQuery1
+    Left = 10
+    Top = 10
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'numero_entretien'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'id_vehicule'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'id_pdc'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'date_prise_en_charge'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'date_arrivee'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'date_depart'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'statut'
+        DataType = ftString
+        Precision = -1
+        Size = 16
+      end    
+      item
+        Name = 'evaluation'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'commentaire'
+        DataType = ftString
+        Precision = -1
+        Size = 1024
+      end>
+    AfterScroll = SQLQuery1AfterScroll
+    Database = Form1.SQLite3Connection1
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'SELECT'
+      '    id,'
+      '    immat,'
+      '    kilometrage,'
+      '    marque,'
+      '    modele,'
+      '    couleur,'
+      '    poids,'
+      '    photo'
+      ''
+      'FROM vehicule'
+      ''
+      'ORDER BY marque, modele;'
+    )
+    Params = <>
+    Macros = <>
+    Left = 56
+    Top = 10
+  end
+  object ActionList1: TActionList
+    Images = Form1.ImageList1
+    Left = 328
+    Top = 138
+    object ActionInsererVoiture: TAction
+      Caption = 'Inserer'
+      ImageIndex = 1
+      OnExecute = ActionInsererVoitureExecute
+    end
+    object ActionModifierVehicule: TAction
+      Caption = 'Modifier'
+      ImageIndex = 6
+      OnExecute = ActionModifierVehiculeExecute
+    end
+    object ActionSupprimeVehicule: TAction
+      Caption = 'Supprimer'
+      ImageIndex = 7
+      OnExecute = ActionSupprimeVehiculeExecute
+    end
+    object ActionRefreshVehicule: TAction
+      Caption = 'Refresh'
+      ImageIndex = 4
+      OnExecute = ActionRefreshVehiculeExecute
+    end
+  end
+end

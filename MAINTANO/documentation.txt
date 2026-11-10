@@ -1,0 +1,35 @@
+--------------------------------------------------------------
+Pour ajouter une fiche intégrée (cadre/frame) pour un module :
+
+1/ Fichier > Nouveau > Cadre
+2/ Donner un nom au frame (propriété Name) : FrameModule1
+3/ Fichier > Enregistrer sous… : frame_module1.pas
+
+Dans le code source de la fiche principale :
+implementation
+uses frame_module1;
+
+--------------------------------------------------------------
+Pour ajouter une fiche dialogue :
+
+1/ Fichier > Nouveau > Fiche
+2/ Activer le mode dialogue
+  - propriété BorderStyle = bsDialog
+3/ Ajouter un bouton Ok :
+ - palette Additionnal : composant TBitBtn
+ - propritété Kind = bkOk
+4/ Ajouter un bouton Annunler :
+ - palette Additionnal : composant TBitBtn
+ - propritété Kind = bkCancel
+5/ Donner un nom à la fiche (propriété Name) : DlgFormulaire1
+6/ Fichier > Enregistrer sous… : dlg_formulaire1.pas
+
+--------------------------------------------------------------
+Pour utiliser le dialogue dans un module :
+
+1/ inclure l'unité
+implementation
+uses dlg_formulaire1;
+2/ créer dynamiquement l'objet dialogue (voir code exemple)
+
+

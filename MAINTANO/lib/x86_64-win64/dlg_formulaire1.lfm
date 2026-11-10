@@ -1,0 +1,365 @@
+object DlgFormulaire1: TDlgFormulaire1
+  Left = 470
+  Height = 460
+  Top = 32
+  Width = 570
+  BorderStyle = bsDialog
+  Caption = 'DlgFormulaire1'
+  ClientHeight = 460
+  ClientWidth = 570
+  DesignTimePPI = 120
+  LCLVersion = '4.4.0.0'
+  object BitBtn1: TBitBtn
+    Left = 336
+    Height = 38
+    Top = 368
+    Width = 94
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    TabOrder = 0
+  end
+  object BitBtn2: TBitBtn
+    Left = 448
+    Height = 38
+    Top = 368
+    Width = 94
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 460
+    Top = 0
+    Width = 136
+    Align = alLeft
+    Caption = 'Panel1'
+    ClientHeight = 460
+    ClientWidth = 136
+    TabOrder = 2
+    object id_vehicule: TEdit
+      Left = 1
+      Height = 28
+      Hint = 'si vous ne connaisser pas l''id du vehicule, veuillez clicker sur son immat, l''id serra automatiquement trouver'
+      Top = 1
+      Width = 134
+      Align = alTop
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      TextHint = 'ID du vehicule'
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Height = 317
+      Top = 29
+      Width = 134
+      Align = alTop
+      Color = clWindow
+      Columns = <>
+      DataSource = DataSource1
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+      ReadOnly = True
+      TabOrder = 1
+      OnCellClick = DBGrid1CellClick
+    end
+  end
+  object Panel2: TPanel
+    Left = 136
+    Height = 460
+    Top = 0
+    Width = 200
+    Align = alLeft
+    Caption = 'Panel2'
+    ClientHeight = 460
+    ClientWidth = 200
+    TabOrder = 3
+    object id_pdc: TEdit
+      Left = 1
+      Height = 28
+      Hint = 'si vous ne connaisser pas l''id du point de controle, veuillez clicker sur le nom, l''id serra automatiquement trouver'
+      Top = 1
+      Width = 198
+      Align = alTop
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      TextHint = 'ID du PDC'
+    end
+    object DBGrid2: TDBGrid
+      Left = 1
+      Height = 317
+      Top = 29
+      Width = 198
+      Align = alTop
+      Color = clWindow
+      Columns = <>
+      DataSource = DataSource2
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+      ReadOnly = True
+      TabOrder = 1
+      OnCellClick = DBGrid2CellClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 336
+    Height = 40
+    Top = 40
+    Width = 234
+    Align = alCustom
+    ClientHeight = 40
+    ClientWidth = 234
+    TabOrder = 4
+    object Label1: TLabel
+      Left = 1
+      Height = 38
+      Top = 1
+      Width = 111
+      Align = alLeft
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Date de prise en '#13#10'charge(facultatif)'
+      Font.Height = 20
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DateCharge: TEdit
+      Left = 112
+      Height = 38
+      Top = 1
+      Width = 121
+      Align = alRight
+      TabOrder = 0
+      TextHint = 'yyyy-mm-jj'
+    end
+  end
+  object Panel4: TPanel
+    Left = 336
+    Height = 40
+    Top = 80
+    Width = 234
+    Align = alCustom
+    ClientHeight = 40
+    ClientWidth = 234
+    TabOrder = 5
+    object Label2: TLabel
+      Left = 1
+      Height = 38
+      Top = 1
+      Width = 111
+      Align = alLeft
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Date de départ'#13#10'(facultatif)'
+      Font.Height = 20
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DateDep: TEdit
+      Left = 112
+      Height = 38
+      Top = 1
+      Width = 121
+      Align = alRight
+      TabOrder = 0
+      TextHint = 'yyyy-mm-jj'
+    end
+  end
+  object Panel5: TPanel
+    Left = 336
+    Height = 40
+    Top = 0
+    Width = 234
+    Align = alCustom
+    ClientHeight = 40
+    ClientWidth = 234
+    TabOrder = 6
+    object Label3: TLabel
+      Left = 1
+      Height = 38
+      Top = 1
+      Width = 111
+      Align = alLeft
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Date d''arriver'#13#10'(facultatif)'
+      Font.Height = 20
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DateArriver: TEdit
+      Left = 112
+      Height = 38
+      Top = 1
+      Width = 121
+      Align = alRight
+      TabOrder = 0
+      TextHint = 'yyyy-mm-jj'
+    end
+  end
+  object Panel6: TPanel
+    Left = 336
+    Height = 144
+    Top = 200
+    Width = 234
+    Align = alCustom
+    ClientHeight = 144
+    ClientWidth = 234
+    TabOrder = 7
+    object Label4: TLabel
+      Left = 1
+      Height = 39
+      Top = 1
+      Width = 232
+      Align = alTop
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Commentaire '#13#10'(facultatif)'
+      Font.Height = 20
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object commentaire: TMemo
+      Left = 1
+      Height = 103
+      Top = 40
+      Width = 232
+      Align = alBottom
+      TabOrder = 0
+    end
+  end
+  object Panel7: TPanel
+    Left = 336
+    Height = 40
+    Top = 120
+    Width = 234
+    Align = alCustom
+    ClientHeight = 40
+    ClientWidth = 234
+    TabOrder = 8
+    object Label5: TLabel
+      Left = 1
+      Height = 38
+      Top = 1
+      Width = 111
+      Align = alLeft
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'statut'#13#10'(facultatif)'
+      Font.Height = 20
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Statut: TComboBox
+      Left = 112
+      Height = 28
+      Top = 1
+      Width = 121
+      Align = alRight
+      ItemHeight = 20
+      ItemIndex = 0
+      Items.Strings = (
+        'En attente'
+        'En cours'
+        'Terminé'
+      )
+      ReadOnly = True
+      TabOrder = 0
+      Text = 'En attente'
+    end
+  end
+  object Panel8: TPanel
+    Left = 336
+    Height = 40
+    Top = 160
+    Width = 234
+    Align = alCustom
+    ClientHeight = 40
+    ClientWidth = 234
+    TabOrder = 9
+    object Label6: TLabel
+      Left = 1
+      Height = 38
+      Top = 1
+      Width = 111
+      Align = alLeft
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Evaluation sur 5'#13#10'(facultatif)'
+      Font.Height = 20
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object eval: TEdit
+      Left = 112
+      Height = 38
+      Top = 1
+      Width = 121
+      Align = alRight
+      TabOrder = 0
+      TextHint = '1 - 5'
+    end
+  end
+  object BitBtn3: TBitBtn
+    Left = 392
+    Height = 38
+    Top = 408
+    Width = 94
+    DefaultCaption = True
+    Kind = bkRetry
+    ModalResult = 4
+    TabOrder = 10
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 56
+    Top = 372
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'immat'
+        DataType = ftString
+        Precision = -1
+        Size = 16
+      end>
+    Database = Form1.SQLite3Connection1
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'SELECT id, immat FROM vehicule;'
+    )
+    Params = <>
+    Macros = <>
+    Left = 16
+    Top = 372
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    Left = 214
+    Top = 372
+  end
+  object SQLQuery2: TSQLQuery
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'nom'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end>
+    Database = Form1.SQLite3Connection1
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'SELECT id, nom FROM point_de_controle;'
+    )
+    Params = <>
+    Macros = <>
+    Left = 168
+    Top = 372
+  end
+end

@@ -1,0 +1,114 @@
+object FrameModule3: TFrameModule3
+  Left = 0
+  Height = 511
+  Top = 0
+  Width = 1141
+  ClientHeight = 511
+  ClientWidth = 1141
+  DesignTimePPI = 120
+  LCLVersion = '4.4.0.0'
+  ParentFont = False
+  TabOrder = 0
+  DesignLeft = 436
+  DesignTop = 10
+  object DBGrid1: TDBGrid
+    Left = 104
+    Height = 511
+    Top = 0
+    Width = 1037
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    DefaultRowHeight = 75
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 0
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 511
+    Top = 0
+    Width = 104
+    Align = alLeft
+    ButtonHeight = 80
+    ButtonWidth = 100
+    Caption = 'ToolBar1'
+    Flat = False
+    Images = Form1.ImageList1
+    ShowCaptions = True
+    TabOrder = 1
+    object ToolButton2: TToolButton
+      Left = 1
+      Top = 2
+      Action = ActionInsererPDC
+      AutoSize = True
+    end
+    object ToolButton3: TToolButton
+      Left = 1
+      Top = 82
+      Action = ActionModifierPDC
+      AutoSize = True
+    end
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 162
+      Action = ActionSupprimePDC
+    end
+    object ToolButton4: TToolButton
+      Left = 1
+      Top = 242
+      Action = ActionRefreshPDC
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 8
+    Top = 10
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.SQLite3Connection1
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'SELECT'
+      '    id,'
+      '    nom,'
+      '    duree_moyenne,'
+      '    description'
+      ''
+      'FROM point_de_controle'
+      ''
+      'ORDER BY nom;'
+    )
+    Params = <>
+    Macros = <>
+    Left = 39
+    Top = 10
+  end
+  object ActionList1: TActionList
+    Images = Form1.ImageList1
+    Left = 120
+    Top = 16
+    object ActionInsererPDC: TAction
+      Caption = 'Inserer'
+      ImageIndex = 1
+      OnExecute = ActionInsererPDCExecute
+    end
+    object ActionModifierPDC: TAction
+      Caption = 'Modifier'
+      ImageIndex = 6
+      OnExecute = ActionModifierPDCExecute
+    end
+    object ActionSupprimePDC: TAction
+      Caption = 'Supprimer'
+      ImageIndex = 7
+      OnExecute = ActionSupprimePDCExecute
+    end
+    object ActionRefreshPDC: TAction
+      Caption = 'Refresh'
+      ImageIndex = 4
+      OnExecute = ActionRefreshPDCExecute
+    end
+  end
+end

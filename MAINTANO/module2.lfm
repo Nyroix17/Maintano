@@ -1,0 +1,81 @@
+object FrameModule2: TFrameModule2
+  Left = 0
+  Height = 563
+  Top = 0
+  Width = 1038
+  ClientHeight = 563
+  ClientWidth = 1038
+  DesignTimePPI = 120
+  LCLVersion = '4.4.0.0'
+  ParentFont = False
+  TabOrder = 0
+  DesignLeft = 470
+  DesignTop = 32
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 563
+    Top = 0
+    Width = 1038
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    DefaultRowHeight = 75
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    TabOrder = 0
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.SQLite3Connection1
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'SELECT'
+      '    vehicule.id,'
+      '    vehicule.immat,'
+      '    vehicule.marque,'
+      '    vehicule.modele,'
+      ''
+      '    strftime(''%Y-%m'', entretien.date_arrivee) AS mois,'
+      ''
+      '    COUNT(entretien.numero_entretien) AS nb_taches,'
+      ''
+      '    SUM('
+      '        CASE'
+      '            WHEN entretien.statut = ''Terminé'''
+      '            THEN 1'
+      '            ELSE 0'
+      '        END'
+      '    ) AS nb_realisees,'
+      ''
+      '    MIN(entretien.evaluation) AS evaluation_min,'
+      ''
+      '    MAX(entretien.evaluation) AS evaluation_max,'
+      ''
+      '    ROUND(AVG(entretien.evaluation), 2) AS evaluation_moyenne'
+      ''
+      'FROM entretien'
+      ''
+      'INNER JOIN vehicule'
+      'ON vehicule.id = entretien.id_vehicule'
+      ''
+      'GROUP BY'
+      '    vehicule.id,'
+      '    strftime(''%Y-%m'', entretien.date_arrivee)'
+      ''
+      'ORDER BY'
+      '    mois DESC,'
+      '    vehicule.marque ASC;'
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 10
+    Top = 10
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 39
+    Top = 10
+  end
+end
